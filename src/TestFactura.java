@@ -5,11 +5,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 class TestFactura {
-	static fartura f;
+	static Invoice f;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		f = new fartura(5);
+		f = new Invoice(5);
 	}
 
 	@AfterAll
@@ -18,20 +18,20 @@ class TestFactura {
 
 	@Test
 	void testIvaredu() {
-		f.ivaredu();
-		assertEquals(5 + 5 * 0.21d, f.tot);
+		f.reducedIva();
+		assertEquals(5 + 5 * 0.21d, f.total);
 	}
 
 	@Test
 	void testIva() {
 		f.iva();
-		assertEquals(5 + 5 * 0.04d, f.tot);
+		assertEquals(5 + 5 * 0.04d, f.total);
 	}
 
 	@Test
 	void testDescuentoesp() {
-		f.descuentoesp();
-		assertEquals(5 - 5 * 0.10d, f.tot);
+		f.specialDiscount();
+		assertEquals(5 - 5 * 0.10d, f.total);
 	}
 
 }
