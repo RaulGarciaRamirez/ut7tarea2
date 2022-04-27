@@ -4,12 +4,12 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-class TestFactura {
-	static Invoice f;
+class TestInvoice {
+	static Invoice invoice;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		f = new Invoice(5);
+		invoice = new Invoice(5);
 	}
 
 	@AfterAll
@@ -18,20 +18,20 @@ class TestFactura {
 
 	@Test
 	void testIvaredu() {
-		f.reducedIva();
-		assertEquals(5 + 5 * 0.21d, f.total);
+		invoice.reducedIva();
+		assertEquals(5 + 5 * 0.21d, invoice.total);
 	}
 
 	@Test
 	void testIva() {
-		f.iva();
-		assertEquals(5 + 5 * 0.04d, f.total);
+		invoice.iva();
+		assertEquals(5 + 5 * 0.04d, invoice.total);
 	}
 
 	@Test
 	void testDescuentoesp() {
-		f.specialDiscount();
-		assertEquals(5 - 5 * 0.10d, f.total);
+		invoice.specialDiscount();
+		assertEquals(5 - 5 * 0.10d, invoice.total);
 	}
 
 }
